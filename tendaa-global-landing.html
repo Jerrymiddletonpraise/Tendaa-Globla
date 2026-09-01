@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tendaa Global — Where Africa Meets the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1B2D;
+    --navy-deep: #0A1220;
+    --navy-mid: #17263D;
+    --clay: #B85C38;
+    --clay-bright: #D3703F;
+    --gold: #D4A54A;
+    --ivory: #F2ECDE;
+    --ivory-dim: #C9C2AF;
+    --ink: #2A3446;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Nav */
+  nav {
+    background: var(--navy-deep);
+    padding: 1.1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { display: flex; align-items: center; gap: 0.65rem; color: var(--ivory); font-weight: 600; font-size: 1.1rem; }
+  .nav-mark { width: 26px; height: 26px; }
+  .nav-links { display: none; gap: 2rem; color: var(--ivory-dim); font-size: 0.95rem; }
+  @media (min-width: 720px) { .nav-links { display: flex; } }
+  .nav-links a:hover { color: var(--gold); }
+  .btn-nav {
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 0.55rem 1.2rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--ivory);
+    padding: 5.5rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-mark {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 480px;
+    height: 480px;
+    opacity: 0.12;
+  }
+  .hero .wrap { position: relative; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    font-weight: 600;
+    max-width: 15ch;
+    color: var(--ivory);
+  }
+  .hero .lede {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    max-width: 46ch;
+    color: var(--ivory-dim);
+  }
+  .hero-ctas { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 0.9rem 1.8rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .btn-secondary {
+    border: 1px solid rgba(242,236,222,0.35);
+    color: var(--ivory);
+    padding: 0.9rem 1.8rem;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+  .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 600; color: var(--gold); }
+  .stat-label { font-size: 0.9rem; color: var(--ivory-dim); margin-top: 0.25rem; }
+
+  /* Section shared */
+  section { padding: 5.5rem 0; }
+  .kicker { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; color: var(--clay); font-weight: 600; margin-bottom: 0.75rem; }
+  h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 600; max-width: 20ch; }
+  .section-intro { margin-top: 1.25rem; max-width: 56ch; font-size: 1.05rem; color: var(--ink); }
+
+  /* Two-sided */
+  .split {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (min-width: 720px) { .split { grid-template-columns: 1fr 1fr; } }
+  .split-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 2rem;
+    border-top: 3px solid var(--clay);
+  }
+  .split-card:nth-child(2) { border-top-color: var(--gold); }
+  .split-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .split-card p { color: var(--ink); font-size: 0.98rem; }
+
+  /* How it works */
+  .steps {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2.5rem;
+  }
+  @media (min-width: 720px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+  .step-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-weight: 700;
+    border: 1px solid var(--navy);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .step h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.95rem; color: var(--ink); }
+
+  /* Pricing */
+  .pricing-section { background: var(--navy-deep); color: var(--ivory); }
+  .pricing-section .kicker { color: var(--gold); }
+  .pricing-section h2 { color: var(--ivory); }
+  .pricing-section .section-intro { color: var(--ivory-dim); }
+
+  .tiers {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+  @media (min-width: 900px) { .tiers { grid-template-columns: repeat(4, 1fr); } }
+
+  .tier-card {
+    background: var(--navy-mid);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier-card.featured { border: 1px solid var(--gold); background: #1C2F4A; }
+  .tier-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.15rem; }
+  .tier-for { font-size: 0.85rem; color: var(--ivory-dim); margin-top: 0.3rem; }
+  .tier-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 600; color: var(--gold); margin-top: 1.25rem; }
+  .tier-price span { font-size: 0.85rem; color: var(--ivory-dim); font-weight: 400; }
+  .tier-features { margin-top: 1.25rem; font-size: 0.88rem; color: var(--ivory-dim); flex: 1; }
+  .tier-features li { list-style: none; padding-left: 1.1rem; position: relative; margin-bottom: 0.55rem; }
+  .tier-features li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+  /* Founding member CTA */
+  .founding {
+    background: var(--clay);
+    color: var(--ivory);
+    text-align: left;
+  }
+  .founding .wrap { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  @media (min-width: 720px) { .founding .wrap { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .founding h2 { color: var(--ivory); max-width: 24ch; }
+  .founding p { margin-top: 0.75rem; color: rgba(242,236,222,0.85); max-width: 42ch; }
+  .btn-founding {
+    background: var(--navy-deep);
+    color: var(--ivory);
+    padding: 0.9rem 1.8rem;
+    border-radius: 3px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Footer */
+  footer { background: var(--navy-deep); color: var(--ivory-dim); padding: 3rem 0; font-size: 0.9rem; }
+  footer .wrap { display: flex; flex-direction: column; gap: 1rem; }
+  @media (min-width: 720px) { footer .wrap { flex-direction: row; justify-content: space-between; align-items: center; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-brand">
+      <svg class="nav-mark" viewBox="0 0 64 64" fill="none">
+        <path d="M6 40C6 24 16 10 32 10" stroke="#D4A54A" stroke-width="5" stroke-linecap="round"/>
+        <path d="M58 24C58 40 48 54 32 54" stroke="#D3703F" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="32" cy="10" r="6" fill="#D4A54A"/>
+        <circle cx="32" cy="54" r="6" fill="#D3703F"/>
+      </svg>
+      Tendaa Global
+    </div>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Membership</a>
+      <a href="#apply">Apply</a>
+    </div>
+    <a href="#apply" class="btn-nav">Apply to join</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <svg class="hero-mark" viewBox="0 0 64 64" fill="none">
+    <path d="M6 40C6 24 16 10 32 10" stroke="#F2ECDE" stroke-width="2" stroke-linecap="round"/>
+    <path d="M58 24C58 40 48 54 32 54" stroke="#F2ECDE" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="32" cy="10" r="6" fill="#F2ECDE"/>
+    <circle cx="32" cy="54" r="6" fill="#F2ECDE"/>
+  </svg>
+  <div class="wrap">
+    <h1>Where Africa meets the world.</h1>
+    <p class="lede">Tendaa Global is the verified network connecting Africa's fastest-growing brands with global partners — and global brands with vetted ground presence on the continent.</p>
+    <div class="hero-ctas">
+      <a href="#apply" class="btn-primary">Apply to join</a>
+      <a href="#how" class="btn-secondary">See how it works</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Membership tiers</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Verified before listing</div>
+      </div>
+      <div>
+        <div class="stat-num">2026</div>
+        <div class="stat-label">Founding cohort opens</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The problem</div>
+    <h2>Two sides, one missing bridge.</h2>
+    <p class="section-intro">Cross-border partnerships fail for a simple reason: neither side can verify the other. Tendaa Global exists to close that gap.</p>
+    <div class="split">
+      <div class="split-card">
+        <h3>For global brands</h3>
+        <p>Entering African markets means betting on distributors, retailers, and manufacturers you can't easily vet from abroad. Due diligence takes months, and a wrong pick can cost a market entirely.</p>
+      </div>
+      <div class="split-card">
+        <h3>For African brands</h3>
+        <p>Reaching serious international partners means competing for attention with no track record abroad and no clear channel to be discovered by the people making the decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:#fff;">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>From application to introduction.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Apply and get verified</h3>
+        <p>Submit your company details. Our team reviews registration, trade history, and references before granting a badge.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get matched</h3>
+        <p>Bridge Partner and Strategic members receive curated introductions based on category, region, and partnership goals.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Close the deal</h3>
+        <p>We stay involved through early conversations to keep both sides aligned — then step back once the partnership is live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing-section">
+  <div class="wrap">
+    <div class="kicker">Membership</div>
+    <h2>Four tiers, built to grow with you.</h2>
+    <p class="section-intro">Start visible. Move up as you're ready for active matchmaking.</p>
+    <div class="tiers">
+      <div class="tier-card">
+        <div class="tier-name">Listed</div>
+        <div class="tier-for">Any brand wanting visibility</div>
+        <div class="tier-price">$500<span> /yr</span></div>
+        <ul class="tier-features">
+          <li>Searchable profile</li>
+          <li>Category tagging</li>
+          <li>Basic company info</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-name">Verified</div>
+        <div class="tier-for">Brands ready to be vetted</div>
+        <div class="tier-price">$2,500<span> /yr</span></div>
+        <ul class="tier-features">
+          <li>Everything in Listed</li>
+          <li>Verification badge</li>
+          <li>Priority search placement</li>
+          <li>Profile view analytics</li>
+        </ul>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-name">Bridge Partner</div>
+        <div class="tier-for">Brands actively seeking deals</div>
+        <div class="tier-price">$8,000<span> /yr</span></div>
+        <ul class="tier-features">
+          <li>Everything in Verified</li>
+          <li>Curated intros, 2x per quarter</li>
+          <li>Partner directory access</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-name">Strategic</div>
+        <div class="tier-for">Brands closing major deals</div>
+        <div class="tier-price">$25k+<span> custom</span></div>
+        <ul class="tier-features">
+          <li>Everything in Bridge Partner</li>
+          <li>Dedicated account manager</li>
+          <li>Exclusive category/region rights</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="founding" id="apply">
+  <div class="wrap">
+    <div>
+      <h2>Founding members get 50% off year one.</h2>
+      <p>We're onboarding the first 50 verified members before opening Bridge Partner matchmaking. Apply now to lock in founding pricing.</p>
+    </div>
+    <a href="#" class="btn-founding">Apply for founding membership</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>Tendaa Global — Where Africa meets the world.</div>
+    <div>Asaba, Delta State · Nigeria</div>
+  </div>
+</footer>
+
+</body>
+</html>

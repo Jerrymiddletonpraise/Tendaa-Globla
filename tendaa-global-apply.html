@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Tendaa Global</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1B2D;
+    --navy-deep: #0A1220;
+    --navy-mid: #17263D;
+    --clay: #B85C38;
+    --clay-bright: #D3703F;
+    --gold: #D4A54A;
+    --ivory: #F2ECDE;
+    --ivory-dim: #C9C2AF;
+    --ink: #2A3446;
+    --line: rgba(15,27,45,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, .display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Nav */
+  nav { background: var(--navy-deep); padding: 1.1rem 0; }
+  nav .wrap { max-width: 1080px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { display: flex; align-items: center; gap: 0.65rem; color: var(--ivory); font-weight: 600; font-size: 1.1rem; }
+  .nav-mark { width: 26px; height: 26px; }
+  .nav-back { color: var(--ivory-dim); font-size: 0.9rem; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* Header */
+  .apply-header {
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 4rem 0 3.5rem;
+  }
+  .kicker { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; color: var(--gold); font-weight: 600; margin-bottom: 0.75rem; }
+  .apply-header h1 { font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 600; max-width: 18ch; }
+  .apply-header p { margin-top: 1rem; color: var(--ivory-dim); max-width: 50ch; font-size: 1.05rem; }
+
+  /* Form */
+  .form-section { padding: 3.5rem 0 5rem; }
+
+  .field-group {
+    margin-bottom: 2.5rem;
+  }
+  .field-group-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .field-row {
+    display: grid;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 600px) {
+    .field-row.two-col { grid-template-columns: 1fr 1fr; }
+  }
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.45rem;
+    color: var(--ink);
+  }
+  .hint { font-size: 0.8rem; color: #6B7383; font-weight: 400; margin-top: 0.3rem; }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    color: var(--ink);
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--clay);
+  }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .radio-group { display: flex; flex-direction: column; gap: 0.65rem; }
+  .radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+  }
+  .radio-option:has(input:checked) { border-color: var(--clay); background: #FBF8F2; }
+  .radio-option input { width: auto; margin-top: 0.2rem; }
+  .radio-option .radio-text { font-size: 0.95rem; }
+  .radio-option .radio-sub { font-size: 0.82rem; color: #6B7383; margin-top: 0.2rem; }
+
+  .tier-select { display: grid; gap: 0.75rem; }
+  @media (min-width: 600px) { .tier-select { grid-template-columns: repeat(2, 1fr); } }
+  .tier-option {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+  .tier-option:has(input:checked) { border-color: var(--gold); background: #FBF8F2; }
+  .tier-option input { width: auto; margin-top: 0.2rem; }
+  .tier-option-name { font-weight: 600; font-size: 0.95rem; }
+  .tier-option-price { font-size: 0.82rem; color: var(--clay); margin-top: 0.15rem; }
+
+  .btn-submit {
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+  }
+  @media (min-width: 600px) { .btn-submit { width: auto; } }
+  .submit-note { font-size: 0.85rem; color: #6B7383; margin-top: 1rem; }
+
+  /* Honeypot */
+  .hp-field { position: absolute; left: -9999px; }
+
+  /* Success state */
+  .success-screen {
+    display: none;
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 5rem 0;
+    text-align: left;
+  }
+  .success-screen.visible { display: block; }
+  .success-mark { width: 48px; height: 48px; margin-bottom: 1.5rem; }
+  .success-screen h2 { color: var(--ivory); font-size: 1.9rem; }
+  .success-screen p { margin-top: 1rem; color: var(--ivory-dim); max-width: 50ch; }
+  .form-section.hidden { display: none; }
+  .apply-header.hidden { display: none; }
+
+  footer { background: var(--navy-deep); color: var(--ivory-dim); padding: 2.5rem 0; font-size: 0.85rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-brand">
+      <svg class="nav-mark" viewBox="0 0 64 64" fill="none">
+        <path d="M6 40C6 24 16 10 32 10" stroke="#D4A54A" stroke-width="5" stroke-linecap="round"/>
+        <path d="M58 24C58 40 48 54 32 54" stroke="#D3703F" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="32" cy="10" r="6" fill="#D4A54A"/>
+        <circle cx="32" cy="54" r="6" fill="#D3703F"/>
+      </svg>
+      Tendaa Global
+    </div>
+    <a href="#" class="nav-back">← Back to home</a>
+  </div>
+</nav>
+
+<div class="apply-header" id="applyHeader">
+  <div class="wrap">
+    <div class="kicker">Membership application</div>
+    <h1>Tell us about your business.</h1>
+    <p>Every application is reviewed before a company is listed. This usually takes 3–5 business days. Founding members who apply before the cohort closes get 50% off year one.</p>
+  </div>
+</div>
+
+<section class="form-section" id="formSection">
+  <div class="wrap">
+    <form id="applyForm" name="tendaa-application" method="POST" data-netlify="true" netlify-honeypot="company-website-hp">
+      <input type="hidden" name="form-name" value="tendaa-application" />
+      <p class="hp-field">
+        <label>Don't fill this out if you're human: <input name="company-website-hp" /></label>
+      </p>
+
+      <div class="field-group">
+        <div class="field-group-title">Company details</div>
+        <div class="field-row two-col">
+          <div>
+            <label for="companyName">Company name</label>
+            <input type="text" id="companyName" name="companyName" required>
+          </div>
+          <div>
+            <label for="regNumber">Business registration number</label>
+            <input type="text" id="regNumber" name="regNumber" required>
+            <div class="hint">Used for verification only — never shown publicly.</div>
+          </div>
+        </div>
+        <div class="field-row two-col">
+          <div>
+            <label for="country">Country of registration</label>
+            <input type="text" id="country" name="country" required>
+          </div>
+          <div>
+            <label for="yearsOperating">Years in operation</label>
+            <input type="number" id="yearsOperating" name="yearsOperating" min="0" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div>
+            <label for="website">Company website</label>
+            <input type="url" id="website" name="website" placeholder="https://">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-group-title">Contact details</div>
+        <div class="field-row two-col">
+          <div>
+            <label for="contactName">Your name</label>
+            <input type="text" id="contactName" name="contactName" required>
+          </div>
+          <div>
+            <label for="role">Role at company</label>
+            <input type="text" id="role" name="role" required>
+          </div>
+        </div>
+        <div class="field-row two-col">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-group-title">Business profile</div>
+        <div class="field-row two-col">
+          <div>
+            <label for="category">Industry category</label>
+            <select id="category" name="category" required>
+              <option value="">Select one</option>
+              <option>Fashion & Apparel</option>
+              <option>Food & Beverage</option>
+              <option>Furniture & Home</option>
+              <option>Retail & E-commerce</option>
+              <option>Finance & Payments</option>
+              <option>Media & Entertainment</option>
+              <option>Logistics & Distribution</option>
+              <option>Manufacturing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="employees">Company size</label>
+            <select id="employees" name="employees" required>
+              <option value="">Select one</option>
+              <option>1–10 employees</option>
+              <option>11–50 employees</option>
+              <option>51–200 employees</option>
+              <option>200+ employees</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div>
+            <label for="description">Briefly describe your business</label>
+            <textarea id="description" name="description" required placeholder="What you make or sell, and where you currently operate."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-group-title">Which direction are you looking?</div>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="direction" value="African brand seeking global partners" required>
+            <span>
+              <span class="radio-text">African brand seeking global partners</span>
+              <div class="radio-sub">You want to reach distributors, retailers, or investors abroad.</div>
+            </span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="direction" value="Global brand entering Africa" required>
+            <span>
+              <span class="radio-text">Global brand entering Africa</span>
+              <div class="radio-sub">You want vetted local partners for market entry.</div>
+            </span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="direction" value="Both" required>
+            <span>
+              <span class="radio-text">Both</span>
+              <div class="radio-sub">Open to partnerships in either direction.</div>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-group-title">Which membership tier interests you?</div>
+        <div class="tier-select">
+          <label class="tier-option">
+            <input type="radio" name="tier" value="Listed" required>
+            <span>
+              <div class="tier-option-name">Listed</div>
+              <div class="tier-option-price">$500/yr — basic visibility</div>
+            </span>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="tier" value="Verified" required>
+            <span>
+              <div class="tier-option-name">Verified</div>
+              <div class="tier-option-price">$2,500/yr — badge + priority</div>
+            </span>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="tier" value="Bridge Partner" required>
+            <span>
+              <div class="tier-option-name">Bridge Partner</div>
+              <div class="tier-option-price">$8,000/yr — active matchmaking</div>
+            </span>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="tier" value="Strategic" required>
+            <span>
+              <div class="tier-option-name">Strategic</div>
+              <div class="tier-option-price">$25k+ — custom, dedicated</div>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">Submit application</button>
+      <div class="submit-note">We'll email you once your application has been reviewed. No payment is required until you're approved.</div>
+    </form>
+  </div>
+</section>
+
+<div class="success-screen" id="successScreen">
+  <div class="wrap">
+    <svg class="success-mark" viewBox="0 0 64 64" fill="none">
+      <path d="M6 40C6 24 16 10 32 10" stroke="#D4A54A" stroke-width="5" stroke-linecap="round"/>
+      <path d="M58 24C58 40 48 54 32 54" stroke="#D3703F" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="32" cy="10" r="6" fill="#D4A54A"/>
+      <circle cx="32" cy="54" r="6" fill="#D3703F"/>
+    </svg>
+    <h2>Application received.</h2>
+    <p>Thanks — our team will review your details and follow up by email within 3–5 business days. If you're applying before the founding cohort closes, your discount is already locked in.</p>
+  </div>
+</div>
+
+<footer>
+  Tendaa Global — Where Africa meets the world.
+</footer>
+
+<script>
+  const form = document.getElementById('applyForm');
+  const applyHeader = document.getElementById('applyHeader');
+  const formSection = document.getElementById('formSection');
+  const successScreen = document.getElementById('successScreen');
+
+  form.addEventListener('submit', function (e) {
+    // In this prototype, submission is simulated. When deployed on Netlify
+    // with data-netlify="true", this form posts to Netlify Forms automatically —
+    // remove preventDefault() below to allow the real POST to go through.
+    e.preventDefault();
+    applyHeader.classList.add('hidden');
+    formSection.classList.add('hidden');
+    successScreen.classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

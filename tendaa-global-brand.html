@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tendaa Global — Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1B2D;
+    --navy-deep: #0A1220;
+    --clay: #B85C38;
+    --clay-bright: #D3703F;
+    --gold: #D4A54A;
+    --ivory: #F2ECDE;
+    --ivory-dim: #C9C2AF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ivory);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  section { padding: 5rem 1.5rem; max-width: 840px; margin: 0 auto; }
+
+  h1, h2, .display {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    color: var(--ivory);
+    padding: 6rem 1.5rem 5rem;
+    max-width: none;
+  }
+
+  .hero-inner { max-width: 840px; margin: 0 auto; }
+
+  .mark { width: 64px; height: 64px; margin-bottom: 2.5rem; }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    font-weight: 600;
+    color: var(--ivory);
+  }
+
+  .hero .sub {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    margin-top: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+  }
+
+  .hero p {
+    max-width: 46ch;
+    margin-top: 2rem;
+    color: var(--ivory-dim);
+    font-size: 1.05rem;
+  }
+
+  /* Section headers */
+  .kicker {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: var(--clay);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Positioning */
+  .positioning p {
+    font-size: 1.15rem;
+    max-width: 60ch;
+    color: #2A3446;
+  }
+
+  /* Palette */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  @media (min-width: 600px) {
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .swatch {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(15,27,45,0.1);
+  }
+
+  .swatch-color { height: 96px; }
+
+  .swatch-label {
+    padding: 0.85rem 1rem;
+    background: #fff;
+  }
+
+  .swatch-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .swatch-hex {
+    font-size: 0.85rem;
+    color: #6B7383;
+    margin-top: 0.2rem;
+  }
+
+  /* Type specimen */
+  .type-block {
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(15,27,45,0.15);
+    padding-top: 2rem;
+  }
+
+  .type-block + .type-block { margin-top: 2rem; }
+
+  .type-role {
+    font-size: 0.9rem;
+    color: var(--clay);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .type-sample-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
+  }
+
+  .type-sample-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    max-width: 58ch;
+    color: #2A3446;
+  }
+
+  /* Voice */
+  .voice-examples {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .voice-card {
+    background: #fff;
+    border-left: 3px solid var(--gold);
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+  }
+
+  .voice-card p { font-size: 1rem; color: #2A3446; }
+
+  .voice-card .voice-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    color: var(--clay);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  footer {
+    background: var(--navy-deep);
+    color: var(--ivory-dim);
+    text-align: center;
+    padding: 3rem 1.5rem;
+    font-size: 0.9rem;
+    max-width: none;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <svg class="mark" viewBox="0 0 64 64" fill="none">
+        <path d="M6 40C6 24 16 10 32 10" stroke="#D4A54A" stroke-width="4" stroke-linecap="round"/>
+        <path d="M58 24C58 40 48 54 32 54" stroke="#D3703F" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="10" r="5" fill="#D4A54A"/>
+        <circle cx="32" cy="54" r="5" fill="#D3703F"/>
+      </svg>
+      <h1>Tendaa Global</h1>
+      <div class="sub">Where Africa meets the world.</div>
+      <p>The verified network connecting Africa's fastest-growing brands with partners abroad — and international brands with vetted ground presence on the continent.</p>
+    </div>
+  </div>
+
+  <section class="positioning">
+    <div class="kicker">Positioning</div>
+    <h2>A trusted bridge, not another directory.</h2>
+    <p>Global brands entering African markets face a wall of unverifiable local contacts. African brands seeking global partners face the opposite problem: no one is looking for them. Tendaa Global closes both gaps with verification, matchmaking, and a network built on real operating credibility.</p>
+  </section>
+
+  <section>
+    <div class="kicker">Color</div>
+    <h2>A palette built to carry weight in a boardroom.</h2>
+    <p style="max-width: 58ch; color: #2A3446;">Navy grounds the brand in institutional trust. Clay and gold carry the continental identity without tipping into travel-brochure territory. Ivory keeps every surface legible.</p>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0F1B2D;"></div>
+        <div class="swatch-label">
+          <div class="swatch-name">Ink Navy</div>
+          <div class="swatch-hex">#0F1B2D</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B85C38;"></div>
+        <div class="swatch-label">
+          <div class="swatch-name">Clay</div>
+          <div class="swatch-hex">#B85C38</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D4A54A;"></div>
+        <div class="swatch-label">
+          <div class="swatch-name">Verified Gold</div>
+          <div class="swatch-hex">#D4A54A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F2ECDE; border-bottom: 1px solid rgba(15,27,45,0.1);"></div>
+        <div class="swatch-label">
+          <div class="swatch-name">Ivory</div>
+          <div class="swatch-hex">#F2ECDE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Type</div>
+    <h2>Two voices, one register.</h2>
+
+    <div class="type-block">
+      <div class="type-role">Display — Space Grotesk</div>
+      <div class="type-sample-display">Verified. Connected. Global.</div>
+    </div>
+
+    <div class="type-block">
+      <div class="type-role">Body — Inter</div>
+      <div class="type-sample-body">Tendaa Global members gain access to a vetted network of cross-border partners, matchmaking support, and market entry intelligence built from real operating experience on the continent.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Voice</div>
+    <h2>How Tendaa Global sounds.</h2>
+    <div class="voice-examples">
+      <div class="voice-card">
+        <div class="voice-tag">Confident, not salesy</div>
+        <p>We verify every member before they're listed. No exceptions.</p>
+      </div>
+      <div class="voice-card">
+        <div class="voice-tag">Direct, not corporate filler</div>
+        <p>Your application is under review. Most decisions land within five business days.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Tendaa Global — Brand Identity v1
+  </footer>
+
+</body>
+</html>
